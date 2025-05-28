@@ -59,8 +59,8 @@ function App() {
   const [isGameLoaded, setIsGameLoaded] = useState(false);
   const [floatingTexts, setFloatingTexts] = useState([]);
   const [activeAntiBonus, setActiveAntiBonus] = useState(null);
-  const ANTI_BONUS_TRIGGER_INTERVAL = 10000; 
-  const ANTI_BONUS_CHANCE = 0.5; 
+  const ANTI_BONUS_TRIGGER_INTERVAL = 120000; 
+  const ANTI_BONUS_CHANCE = 0.2; 
 
   const duiktcoinBonusMultiplier = 1 + (duiktcoins * DUIKTCOIN_BONUS_PER_POINT);
   const globalMultiplierFromUpgrades = useCallback(() => {
