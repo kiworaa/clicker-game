@@ -1,0 +1,100 @@
+.upgradeItem {
+  background-color: var(--card-bg, #4a4f5a);
+  border: 1px solid var(--card-border, #5a5f6a);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+
+  .icon {
+    font-size: 1.8em;
+    margin-right: 12px;
+    line-height: 1;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    margin: 0;
+    color: var(--accent-green, #cddc39);
+    font-size: 1.25em;
+    font-weight: 600;
+  }
+
+  .description {
+    font-size: 0.9em;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    opacity: 0.85;
+    flex-grow: 1;
+  }
+
+  .details {
+    font-size: 0.85em;
+    margin-bottom: 15px;
+    opacity: 0.7;
+  }
+}
+
+.upgradeButton {
+  background-color: var(--accent-blue, #4CAF50);
+  border: none;
+  color: var(--text-dark, white);
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  font-size: 0.95em;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, filter 0.2s ease; // Додали filter в transition
+  margin-top: auto;
+
+  &:hover:not(:disabled) {
+    filter: brightness(90%); // ВИПРАВЛЕНО
+    transform: scale(1.02);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+    filter: brightness(80%); // Можна теж трохи затемнити при active
+  }
+
+  &:disabled {
+    background-color: #555c66;
+    color: #888e99;
+    cursor: not-allowed;
+    opacity: 0.7;
+    filter: none; // Скидаємо фільтр для disabled стану
+  }
+}
+
+.maxLevelLabel {
+  color: var(--accent-orange, #ff9800);
+  font-size: 0.8em;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.maxLevelReached {
+  color: #b0bec5;
+  font-style: italic;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9em;
+}

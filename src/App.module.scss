@@ -1,0 +1,263 @@
+// src/App.module.scss
+:root {
+  --primary-bg: #282c34;
+  --secondary-bg: #1e2128;
+  --header-bg: rgba(30, 33, 40, 0.9);
+  --card-bg: #2c313a;
+  --card-border: #4a4f5a;
+  --text-light: #e0e0e0;
+  --text-dark: #282c34;
+  --accent-blue: #61dafb;
+  --accent-green: #4caf50;
+  --accent-yellow: #ffc107;
+  --accent-orange: #ff9800;
+  --accent-red: #f44336;
+  --accent-red-darker: #d12c1f;
+  --accent-purple: #9c27b0;
+  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --accent-orange-rgb: 255,152,0;
+  --accent-yellow-rgb: 255,193,7;
+  --accent-blue-rgb: 97,218,251;
+}
+
+.app {
+  font-family: var(--font-main);
+  background-color: var(--primary-bg);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  transition: filter 0.5s ease-in-out, background-color 0.5s ease-in-out;
+
+  &.antiBonusActiveState {
+    filter: grayscale(30%) brightness(90%);
+  }
+}
+
+.appHeader {
+  background-color: var(--header-bg);
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  border: 1px solid var(--card-border);
+}
+
+.headerTopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.gameTitle {
+  margin: 0;
+  font-size: 2.2em;
+  color: var(--text-light);
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+.headerActions {
+  display: flex;
+  gap: 10px;
+}
+
+.creditsDisplay {
+  font-size: 2.2em;
+  margin: 10px 0 5px;
+  color: var(--accent-blue);
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(var(--accent-blue-rgb), 0.5);
+}
+
+.cpsDisplay {
+  font-size: 1em;
+  color: #a5d6a7;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.clickButtonWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.clickButton {
+  background: linear-gradient(145deg, var(--accent-blue), #4aa8c0);
+  border: none;
+  color: var(--text-dark);
+  padding: 18px 40px;
+  font-size: 1.3em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2), inset 0 -2px 2px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.clickButtonDisabled {
+  background: #757575 !important;
+  cursor: not-allowed !important;
+  color: #bdbdbd !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3) !important;
+  &:hover, &:active {
+    transform: none !important;
+  }
+}
+
+.floatingTextContainer {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  width: auto;
+  min-width: 30px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.floatingText {
+  position: absolute;
+  color: var(--accent-green, #4caf50);
+  font-size: 1.3em;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  white-space: nowrap;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.actionButton {
+  padding: 10px 18px;
+  font-size: 0.9em;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  background-color: var(--card-bg);
+  color: var(--text-light);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  }
+   &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.skinsShopButton {
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+  &:hover:not(:disabled) {
+    background-color: var(--accent-purple);
+    color: white;
+  }
+}
+
+.bonusesButton {
+  border-color: var(--accent-yellow);
+  color: var(--accent-yellow);
+  &:hover:not(:disabled) {
+    background-color: var(--accent-yellow);
+    color: var(--text-dark);
+  }
+}
+
+.prestigeButton {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+  &:hover:not(:disabled) {
+    background-color: var(--accent-orange);
+    color: var(--text-dark);
+  }
+}
+
+.upgradesSectionFull {
+  width: 100%;
+  max-width: 900px;
+  padding: 25px;
+  background-color: var(--secondary-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  margin-bottom: 30px;
+  border: 1px solid var(--card-border);
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+    color: var(--accent-blue);
+    text-align: center;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+}
+
+.upgradesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.prestigeInfo {
+  text-align: left;
+  line-height: 1.6;
+  p { margin-bottom: 12px; font-size: 1em; }
+  strong { color: var(--accent-yellow); }
+  hr { border: 0; border-top: 1px solid var(--card-border); margin: 20px 0; }
+}
+.prestigeGain { font-size: 1.2em !important; color: var(--accent-green); text-align: center; margin-top: 20px !important; }
+.confirmPrestigeButton { display: block; width: 100%; padding: 12px 20px; font-size: 1.1em; font-weight: bold; color: var(--text-dark); background-color: var(--accent-orange); border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s ease, filter 0.2s ease; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); &:hover { filter: brightness(90%); } }
+.prestigeWarning { margin-top: 25px !important; font-size: 0.9em !important; color: var(--text-light); opacity: 0.8; text-align: center; border-top: 1px dashed var(--card-border); padding-top: 15px; }
+
+.fullRestartButton {
+  margin-top: 30px;
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+  background-color: transparent;
+  &:hover:not(:disabled) {
+    background-color: var(--accent-red);
+    color: white;
+  }
+}
+
+.antiBonusActiveBanner {
+  background-color: var(--accent-red, #f44336);
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+  border-bottom: 2px solid var(--accent-red-darker, #bf3026);
+
+  p { margin: 4px 0; font-size: 0.9em; }
+  strong { font-size: 1.15em; display: block; margin-bottom: 2px; }
+  .antiBonusTimer { font-weight: bold; font-size: 1em; margin-top: 5px; }
+}
+
+.antiBonusEffectIndicator {
+  color: var(--accent-red);
+  font-weight: bold;
+  margin-left: 8px;
+  font-size: 0.9em;
+}

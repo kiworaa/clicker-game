@@ -1,0 +1,67 @@
+// src/components/Bonuses/BonusItem.module.scss
+.bonusItem {
+  background-color: #424242; // Темніший, ніж апгрейди
+  border: 1px solid #535353;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+
+  &.active {
+    box-shadow: 0 0 10px #00e676, 0 0 5px #00e676 inset; // Зелене світіння для активних
+    border-color: #00e676;
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #ffc107; // Жовтий для назви бонусу
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .activeTimer, .cooldownTimer {
+    font-weight: bold;
+    font-size: 0.85em;
+  }
+  .activeTimer {
+    color: #69f0ae; // Світло-зелений
+  }
+  .cooldownTimer {
+    color: #ff8a65; // Світло-помаранчевий
+  }
+}
+
+.activateButton {
+  background-color: #007bff; // Синій для кнопки активації
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    background-color: #6c757d; // Сірий для неактивної кнопки
+    color: #adb5bd;
+    cursor: not-allowed;
+  }
+}

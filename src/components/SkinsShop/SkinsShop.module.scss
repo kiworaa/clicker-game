@@ -1,0 +1,136 @@
+// src/components/SkinsShop/SkinsShop.module.scss
+.skinsShop {
+  padding: 10px;
+  color: var(--text-light);
+}
+
+.duiktcoinsDisplay {
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  padding: 10px;
+  background-color: rgba(var(--accent-orange-rgb, 255,152,0), 0.1); // Потрібно визначити --accent-orange-rgb
+  border: 1px solid var(--accent-orange, #ff9800);
+  border-radius: 8px;
+  strong {
+    color: var(--accent-orange, #ff9800);
+  }
+}
+
+.categorySection {
+  margin-bottom: 30px;
+  h2 {
+    font-size: 1.5em;
+    color: var(--accent-blue, #61dafb);
+    border-bottom: 1px solid var(--card-border, #4a4f5a);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+}
+
+.itemsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.skinItem {
+  background-color: var(--card-bg, #3a3f4a);
+  border: 1px solid var(--card-border, #5a5f6a);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &.owned {
+    border-left: 4px solid var(--accent-green, #4caf50);
+  }
+  &.equipped {
+    border-color: var(--accent-yellow, #ffc107);
+    box-shadow: 0 0 10px rgba(var(--accent-yellow-rgb, 255,193,7), 0.5); // Потрібно визначити --accent-yellow-rgb
+    transform: scale(1.02);
+  }
+}
+
+.itemPreview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; // Кругле прев'ю для кольору
+  margin: 0 auto 10px;
+  border: 2px solid var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* для позиціонування тексту назви */
+}
+.colorNamePreview, .accessoryNamePreview {
+    position: absolute;
+    bottom: -20px; /* або інше значення для позиціонування */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: var(--text-light);
+    background-color: rgba(0,0,0,0.5);
+    padding: 2px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+.accessoryNamePreview {
+    bottom: 5px;
+}
+
+
+.itemName { // Можна видалити, якщо використовуємо прев'ю з назвою
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1em;
+}
+
+.itemCost {
+  font-size: 0.9em;
+  color: var(--accent-orange, #ff9800);
+  margin-bottom: 10px;
+}
+
+.actionButton {
+  padding: 8px 12px;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.buyButton {
+  background-color: var(--accent-blue, #61dafb);
+  color: var(--text-dark, #282c34);
+  &:hover:not(:disabled) {
+    filter: brightness(90%);
+  }
+  &:disabled {
+    background-color: #555c66;
+    color: #888e99;
+    cursor: not-allowed;
+  }
+}
+
+.equipButton {
+  background-color: var(--accent-green, #4caf50);
+  color: white;
+   &:hover:not(:disabled) {
+    filter: brightness(90%);
+  }
+}
+
+button:disabled.actionButton { // Для кнопки "Екіпіровано"
+  background-color: var(--secondary-bg, #1e2128);
+  color: var(--text-light);
+  opacity: 0.7;
+  cursor: default;
+}
